@@ -19,28 +19,9 @@ Supplementary data for the paper *insert paper name later*
 
 ## Source
 
-The data is scraped using a [snscrape API](https://github.com/JustAnotherArchivist/snscrape), and it consists of all posts starting from January 1st, 2012 to December 31st, 2022 across these Twitter pages:
+The data is scraped using a [snscrape API](https://github.com/JustAnotherArchivist/snscrape), and it consists of all posts starting from January 1st, 2012 to December 31st, 2022 posted by the following 31 Twitter pages of NA banks:
+BankFAB, PCFinancial, TDBank_US, BankofAmerica, Citibank, BofA_News, CitizensBank, fvbankus, usbank, FifthThird, RegionsBank, Chase, TruistNews, USAA, BNYMellon, Ally, BMO, GoldmanSachs, MandT_Bank, WellsFargo, Netspend, TangerineBank, fidelitybankplc, SVB_Financial, CapitalOne, SallieMae, RBC, FrostBank, CreditOneBank, cibc, TD_Canada.
 
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
 
 ## Summary of Data
 
