@@ -1,4 +1,4 @@
-![image](https://github.com/v-artur/bank_twitter_posts/assets/79998122/f45030a1-f8a6-4709-9dc4-c6c4fceb3fb6)# bank_twitter_posts
+# bank_twitter_posts
 
 Supplementary data for the paper *insert paper name later*
 
