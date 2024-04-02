@@ -7,7 +7,7 @@ Supplementary data for the paper *insert paper name later*
 ```
 @article{gombos2024bank,
   title={},
-  author={Gombos, Nóra Julianna and Biró Szigeti, Szilvia and Molontay, Roland and Vlaszov, Artúr},
+  author={Gombos, Nóra Julianna and Vlaszov, Artúr and Biró Szigeti, Szilvia and Molontay, Roland},
   journal={},
   volume={},
   number={},
