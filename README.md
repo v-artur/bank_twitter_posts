@@ -4,18 +4,6 @@ Supplementary data for the paper *insert paper name later*
 
 ## How to Cite
 
-```
-@article{gombos2024bank,
-  title={},
-  author={Gombos, Nóra Julianna and Vlaszov, Artúr and Biró Szigeti, Szilvia and Molontay, Roland},
-  journal={},
-  volume={},
-  number={},
-  pages={},
-  year={2024},
-  publisher={}
-}
-```
 ## Remarks for the graphs
 
 The words "popular" and "non-popular" refer to the binary label of the tweet that we defined in the paper. Shortly: a tweet of a certain account is labelled "popular", if the amount of likes on it is greater than the mean plus two standard deviations of the amount of likes from the prior 50 and subsequent 50 tweets of the same account. All other tweets are labeled "non-popular".
@@ -63,6 +51,31 @@ The graphs are based on 4 different slices of the full dataset:
 - **top4_all_mi_c**: the same as *all_mi_c* except for all tweets on the *reduced dataset*.
 - **top4_img_mi_b_norm**: the same as *img_mi_b_norm* except for tweets with images on the *reduced dataset*.
 - **top4_img_mi_c**: the same as *img_mi_c* except for tweets with images on the *reduced dataset*.
+
+## Summary table of statistical tests - "stat tests summary.xlsx"
+
+In this large table we collected 4 summary tables of all statistical tests.
+
+The first table contains the results of two tests, Welch t-tests regarding the mean of the continuous target depending on the category of a variable, and the correlation tests of continuous variables with the same target. These two cases are collected together, because they both measure the effect of a variable on the value of the continuous target. For a continuous variable, the correlation shows whether an increase in its value increases or decreases the target value. For categorical features, we check for each category, whether the mean of the target is greater or smaller among the tweets labeled with that category, versus among all other tweets. For binary features we obviously checked the case when the value is 1. The rows are colored depending on the significance of the test statistics. A row is colored green, if the test statistic is significant both on the full- and the reduced dataset. It is blue if only the full dataset case is significant, magenta if only the reduced case is significant. The row is white if neither of the cases showed significant connection.
+The different columns are:
+
+- **var (category)**: name of the continuous variable or in case of categorical features, the name of the variable combined with the specific category.
+- **data slice**: whether the feature is tested on all tweets or just the tweets with images.
+- **var type**: type of the variable (continuous, binary, categorical).
+- **category size**: number of tweets with the specific category in the given variable, or number of all tweets in case of cont. features.
+- **top4 category size**: same as the previous, except only for the *reduced dataset*.
+- **cardinality**: the number of different categories for the original feature, or in case of continuous variables, the number of tweets.
+- **top4 cardinality**: same as the previous, except only for the *reduced dataset*.
+- **mean of cont. target by category**: mean of the continuous target among tweets belonging to the specific category.
+- **top4 mean of cont. target by category**: same as the previous, except only for the *reduced dataset*.
+- **cont. target mean of the rest/ correlation with cont. target**: mean of the continuous target among the rest of the tweets or in case of continuous variables the correlation between the variable and the target.
+- **top4 cont. target mean of the rest/ correlation with cont. target**: same as the previous, except only for the *reduced dataset*.
+- **is the mean greater in the category? / is the correlation positive?**: binary indicator of whether the mean is greater in the specific category, or in case of continuous variables, whether the correlation is positive.
+- **top4 is the mean greater in the category? / is the correlation positive?**: same as the previous, except only for the *reduced dataset*.
+- **Welch/corr. test p_value**: p-value of the appropriate test.
+- **top4 Welch/corr. test p_value**: same as the previous, except only for the *reduced dataset*.
+- **significant difference in target mean/correlation**: indicator, whether the p-value is less or equal to 0.05.
+- **top4 significant difference in target mean/correlation**: same as the previous, except only for the *reduced dataset*.
 
 
 ## Data scraping and the accounts of the 31 banks
