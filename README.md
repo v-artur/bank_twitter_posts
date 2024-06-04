@@ -112,7 +112,7 @@ The **third table** contains the results of the Fisher exact tests regarding the
 
 The **fourth table** contains the results of the G-tests. We tested, wether the distribution of different categories of the categorical features differ significantly among popular and non popular tweets. A significant difference means that the ratio of certain categories is different in the two cases, but the G-test doesn't specify anything else, like the measure of the difference. The rows are once again colored according to the significance in the full and top 4 cases, and the columns are the following:
 
-- **variable (category)**: name of the variable combined with the specific category.
+- **variable**: name of the variable.
 - **var type**: whether the variable is categorical or binary.
 - **data slice**: whether the feature is tested on all tweets or just the tweets with images.
 - **cardinality**: the number of different categories for the original feature, or in case of continuous variables, the number of tweets.
@@ -126,8 +126,26 @@ The **fourth table** contains the results of the G-tests. We tested, wether the 
 - **significant difference in distribution**: indicator, whether the p-value is less or equal to 0.05.
 - **(top4) significant difference in distribution**: same as the previous, except only for the *reduced dataset*.
 
-## Summary table of statistical tests - "stat tests summary.xlsx"
+## Summary tables of regressions - "univar regression summary.xlsx" and "regression summary.xlsx"
 
+The first table contains the results of univariate regressions, where we simply fitted the linear and logistic regressions including one predictor variable at a time (and also a constant). The second table contains the results of multivariate regressions, where we included all variables at the same time. Categorical features were one-hot encoded, always leaving one dummy out, in order to avoid multicollinearity. The first table has 4 subtables, each containing both the results on the full and the reduced dataset next to eachother. The 4 subtables show the results of linear and logistic regressions on all tweets and only tweets with images (2x2). Each subtable has a corresponging title to clarify its purpose. The second summary table has 8 subtables separated by the same logic, except the results on the full and reduced dataset are also separated. The subtables in this table have the R squared values of the appropriate model in the top left corner, and are derived directly from the outputs of statsmodels.OLS.summary().
+
+The columns of the univariate results are as follows (the last five are repeated for the top4 case):
+- **variable**: name of the variable.
+- **r2**: R squared value of the regression.
+- **p_of_var**: p value indicating the significance of the coefficient of the variable.
+- **coef_of_var**: coefficient of the variable.
+- **p_of_const**: p value indicating the significance of the coefficient of the constant (intercept).
+- **coef_of_constant**: coefficient of the constant.
+
+ and all have the same columns (the first one contains the names of the variables and dummies, but has no column name):
+
+- **coef**: the coefficient of the variable.
+- **std err**: estimate of the standard deviation of the coefficient.
+- **t**: t-statistic of the t-test on wether the coefficient is 0 or not.
+- **P>|t|**: the p value of the coefficient.
+- **\[0.025**: the left side of the 95% confidence interval of the fitted parameters.
+- **0.975]**: the right side of the 95% confidence interval of the fitted parameters.
 
 ## Data scraping and the accounts of the 31 banks
 
