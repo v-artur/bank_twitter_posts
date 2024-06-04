@@ -128,7 +128,7 @@ The **fourth table** contains the results of the G-tests. We tested, wether the 
 
 ## Summary tables of regressions - "univar regression summary.xlsx" and "regression summary.xlsx"
 
-The first table contains the results of univariate regressions, where we simply fitted the linear and logistic regressions including one predictor variable at a time (and also a constant). The second table contains the results of multivariate regressions, where we included all variables at the same time. Categorical features were one-hot encoded, always leaving one dummy out, in order to avoid multicollinearity. The first table has 4 subtables, each containing both the results on the full and the reduced dataset next to eachother. The 4 subtables show the results of linear and logistic regressions on all tweets and only tweets with images (2x2). Each subtable has a corresponging title to clarify its purpose. The second summary table has 8 subtables separated by the same logic, except the results on the full and reduced dataset are also separated. The subtables in this table have the R squared values of the appropriate model in the top left corner, and are derived directly from the outputs of statsmodels.OLS.summary().
+The first table contains the results of univariate regressions, where we simply fitted the linear and logistic regressions including one predictor variable at a time (and also a constant). The second table contains the results of multivariate regressions, where we included all variables at the same time. Categorical features were one-hot encoded, always leaving one dummy out, in order to avoid multicollinearity. The first table has 4 subtables, each containing both the results on the full and the reduced dataset next to eachother. The 4 subtables show the results of linear and logistic regressions on all tweets and only tweets with images (2x2). Each subtable has a corresponging title to clarify its purpose. The second summary table has 8 subtables separated by the same logic, except the results on the full and reduced dataset are also separated. The subtables in this table have the R squared values of the appropriate model in the top left corner, and are derived directly from the outputs of statsmodels.regression.linear_model.OLSResults.summary, and all have the same columns (the first one contains the names of the variables and dummies, but has no column name).
 
 The columns of the univariate results are as follows (the last five are repeated for the top4 case):
 - **variable**: name of the variable.
@@ -138,8 +138,7 @@ The columns of the univariate results are as follows (the last five are repeated
 - **p_of_const**: p value indicating the significance of the coefficient of the constant (intercept).
 - **coef_of_constant**: coefficient of the constant.
 
- and all have the same columns (the first one contains the names of the variables and dummies, but has no column name):
-
+The columns of the multivariate results:
 - **coef**: the coefficient of the variable.
 - **std err**: estimate of the standard deviation of the coefficient.
 - **t**: t-statistic of the t-test on wether the coefficient is 0 or not.
