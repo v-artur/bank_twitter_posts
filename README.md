@@ -56,7 +56,7 @@ The graphs are based on 4 different slices of the full dataset:
 
 In this large table we collected 4 summary tables of all statistical tests.
 
-The first table contains the results of two tests, Welch t-tests regarding the mean of the continuous target depending on the category of a variable, and the correlation tests of continuous variables with the same target. These two cases are collected together, because they both measure the effect of a variable on the value of the continuous target. For a continuous variable, the correlation shows whether an increase in its value increases or decreases the target value. For categorical features, we check for each category, whether the mean of the target is greater or smaller among the tweets labeled with that category, versus among all other tweets. For binary features we obviously checked the case when the value is 1. The rows are colored depending on the significance of the test statistics. A row is colored green, if the test statistic is significant both on the full- and the reduced dataset. It is blue if only the full dataset case is significant, magenta if only the reduced case is significant. The row is white if neither of the cases showed significant connection.
+The **first table** contains the results of two tests, Welch t-tests regarding the mean of the continuous target depending on the category of a variable, and the correlation tests of continuous variables with the same target. These two cases are collected together, because they both measure the effect of a variable on the value of the continuous target. For a continuous variable, the correlation shows whether an increase in its value increases or decreases the target value. For categorical features, we check for each category, whether the mean of the target is greater or smaller among the tweets labeled with that category, versus among all other tweets. For binary features we obviously checked the case when the value is 1. The rows are colored depending on the significance of the test statistics. A row is colored green, if the test statistic is significant both on the full- and the reduced dataset. It is blue if only the full dataset case is significant, magenta if only the reduced case is significant. The row is white if neither of the cases showed significant connection.
 The different columns are:
 
 - **var (category)**: name of the continuous variable or in case of categorical features, the name of the variable combined with the specific category.
@@ -76,6 +76,57 @@ The different columns are:
 - **top4 Welch/corr. test p_value**: same as the previous, except only for the *reduced dataset*.
 - **significant difference in target mean/correlation**: indicator, whether the p-value is less or equal to 0.05.
 - **top4 significant difference in target mean/correlation**: same as the previous, except only for the *reduced dataset*.
+
+The **second table** contains the results of the other type of Welch t-tests that we did, with which we tested whether the mean of a given continuous variable differs between tweets labeled popular and unpopular. This is a "backward" method in a sense, because we measure the mean values of variables as a function of the binary target, rahter than in the opposite way. Yet it makes sense, because for example if "popular" tweets are usually longer, then posting a longer tweet has higher odds of becoming popular. For this reason we included columns containing the mean values in popular and non popular tweets, and whether the mean is larger in the popular ones. This table is also colored according to the significance in different cases, and the columns are as follows:
+
+- **variable**: name of the variable.
+- **data slice**: whether the feature is tested on all tweets or just the tweets with images.
+- **variable mean of non popular tweets**: the mean of the variable among tweets labeled non popular.
+- **(top4) variable mean of non popular tweets**: same as the previous, except only for the *reduced dataset*.
+- **variable mean of popular tweets**: the mean of the variable among tweets labeled popular.
+- **(top4) variable mean of popular tweets**: same as the previous, except only for the *reduced dataset*.
+- **mean of popular tweets greater?**: binary variable indicating whether the mean is greater among tweets labaled popular.
+- **(top4) mean of popular tweets greater?**: same as the previous, except only for the *reduced dataset*.
+- **Welch p value**: p-value of the test.
+- **(top4) Welch p value**: same as the previous, except only for the *reduced dataset*.
+- **significant difference in means**: indicator, whether the p-value is less or equal to 0.05.
+- **(top4) significant difference in means**: same as the previous, except only for the *reduced dataset*.
+
+The **third table** contains the results of the Fisher exact tests regarding the odds ratios. In our case the results showed whether certain categories had higher or lower odds of making the tweets popular. Significant results mean that the odds ratio is not 1, hence there is a difference in the odds, yet it isn't specified by the test whether it's lower or greater than one. That's why we directly stored the odds ratios in separate columns. For the sake of convenience we also calculated the *ratio* (not odds) of popular tweets among the tweets of the given category, and among tweets of all other categories (in a one-vs-rest manner). This also allowed us to see, that despite significant odds ratios, the probability of achieving popularity by posting a tweet of a certain category usually remained low. The table is also colored by significances, and the columns are as follows:
+
+- **variable (category)**: name of the variable combined with the specific category.
+- **var type**: whether the variable is categorical or binary.
+- **data slice**: whether the feature is tested on all tweets or just the tweets with images.
+- **cardinality**: how many categories does the feature have.
+- **(top4) cardinality**: same as the previous, except only for the *reduced dataset*.
+- **probability of popular tweets in the category**: ratio of popular tweets among the tweets of the given category.
+- **(top4) probability of popular tweets in the category**: same as the previous, except only for the *reduced dataset*.
+- **probability of popular tweets in the rest**: ratio of popular tweets among the tweets outside given category.
+- **(top4) probability of popular tweets in the rest**: same as the previous, except only for the *reduced dataset*.
+- **odds ratio**: the exact odds ratio.
+- **(top4) odds ratio**: same as the previous, except only for the *reduced dataset*.
+- **p value**: p value of the Fisher exact test.
+- **(top4) p value**: same as the previous, except only for the *reduced dataset*.
+- **signifficant ratio**: indicator, whether the p-value is less or equal to 0.05.
+-	**(top4) signifficant ratio**: same as the previous, except only for the *reduced dataset*.
+
+The **fourth table** contains the results of the G-tests. We tested, wether the distribution of different categories of the categorical features differ significantly among popular and non popular tweets. A significant difference means that the ratio of certain categories is different in the two cases, but the G-test doesn't specify anything else, like the measure of the difference. The rows are once again colored according to the significance in the full and top 4 cases, and the columns are the following:
+
+- **variable (category)**: name of the variable combined with the specific category.
+- **var type**: whether the variable is categorical or binary.
+- **data slice**: whether the feature is tested on all tweets or just the tweets with images.
+- **cardinality**: the number of different categories for the original feature, or in case of continuous variables, the number of tweets.
+- **top4 cardinality**: same as the previous, except only for the *reduced dataset*.
+- **G test stat**: test statistic.
+- **top4 G test stat**: same as the previous, except only for the *reduced dataset*.
+- **degree of freedom**: degree of freedom of the test, based on the data.
+- **top4 degree of freedom**: same as the previous, except only for the *reduced dataset*.
+- **p value**: p value of the G-test.
+- **top4 p value**: same as the previous, except only for the *reduced dataset*.
+- **significant difference in distribution**: indicator, whether the p-value is less or equal to 0.05.
+- **(top4) significant difference in distribution**: same as the previous, except only for the *reduced dataset*.
+
+## Summary table of statistical tests - "stat tests summary.xlsx"
 
 
 ## Data scraping and the accounts of the 31 banks
